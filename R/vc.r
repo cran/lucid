@@ -1,5 +1,9 @@
 # vc.r
-# Time-stamp: <25 Nov 2014 10:20:19 c:/x/rpack/lucid/R/vc.r>
+# Time-stamp: <06 Jan 2015 15:04:32 c:/x/rpack/lucid/R/vc.r>
+
+# The 'vc' function extracts the variance components from
+# a fitted model.
+# The print methods use 'lucid' to format the output.
 
 vc <- function(object, ...) UseMethod("vc")
 
@@ -36,19 +40,19 @@ print.vc.asreml  <- function(x, dig=4, ...){
 
   x[] <- lapply(x, lucid, dig)
 
-  # Rename for printing.  Not all columns are always present--don't use reName
+  # Rename for printing.
   cn <- colnames(x)
   cn[cn=="constraint"] <- "constr"
   colnames(x) <- cn
 
   # Shorten constraint to 3-letter code
   levels(x$constr)[levels(x$constr)=="Fixed"] <- "fix"
-  levels(x$constr)[levels(x$constr)=="Boundary"] <- "bound"
+  levels(x$constr)[levels(x$constr)=="Boundary"] <- "bnd "
   levels(x$constr)[levels(x$constr)=="Positive"] <- "pos"
-  levels(x$constr)[levels(x$constr)=="Unconstrained"] <- "uncon"
+  levels(x$constr)[levels(x$constr)=="Unconstrained"] <- "unc"
 
   print(x, row.names=FALSE) # Do not print row numbers
-  invisible(x)
+  return()
 }
 
 # ----- lme -----
@@ -74,9 +78,9 @@ vc.lme <- function(object, ...) {
 }
 print.vc.lme <- function(x, dig=4, ...) {
   class(x) <- class(x)[-1] # remove vc.lme
-  x[] <- lapply(x, lucid, dig)
+  x[] <- lapply(x, lucid, dig, ...)
   print(x, quote=FALSE, row.names=FALSE)
-  invisible()
+  return()
 }
 
 # ----- lme4 -----
@@ -90,15 +94,22 @@ vc.glmerMod <- function(object, ...) {
 
 vc.lmerMod <- function(object, ...) {
   dd <- as.data.frame(VarCorr(object))
+  # Remove <NA>
   class(dd) <- c("vc.lmerMod", class(dd))
   return(dd)
 }
 
 print.vc.lmerMod <- function(x, dig=4, ...){
   class(x) <- class(x)[-1] # remove vc.lmerMod
-  x[] <- lapply(x, lucid, dig)
+  x[] <- lapply(x, lucid, dig, ...)
+
+  # Replace NA_character_ with ""
+
+  # x[] <- lapply(x, function(xx) { gsub("<NA>", "", xx) })
+  # x[] <- lapply(x, function(xx) { xx[is.na(xx)] <- "" })
+
   print(x, row.names=FALSE)
-  invisible(x)
+  return()
 }
 
 # ----- tests -----
