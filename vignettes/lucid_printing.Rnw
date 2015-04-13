@@ -1,5 +1,5 @@
 % lucid_printing.Rnw
-% Time-stamp: <09 Jan 2015 08:53:25 c:/x/rpack/lucid/vignettes/lucid_printing.Rnw>
+% Time-stamp: <13 Apr 2015 17:27:45 c:/x/rpack/lucid/vignettes/lucid_printing.Rnw>
 
 % \VignetteEngine{knitr::knitr}
 % \VignetteIndexEntry{Lucid printing}
@@ -243,10 +243,16 @@ function uses a similar philosophy, presenting the variances with four
 significant digits and \code{asreml} $Z$ statistics with two significant
 digits.
 
+% ----------------------------------------------------------------------------
+
+\subsection{Example 1 - Rail data}
+
 The following simple example illustrates use of the \code{vc} function for
 identical models in the \code{nlme}, \code{lme4}, and \code{asreml} packages.
 The travel times of ultrasonic waves in six steel rails was modeled as an
 overall mean, a random effect for each rail, and a random residual.
+The package \code{rjags} is used to fit a similar Bayesian model inspired by
+\cite{wilkinson2014oneway}.
 
 <<message=FALSE>>=
 require("nlme")
@@ -266,13 +272,52 @@ vc(m4)
 ##     R!variance     16.17       6.6     2.4    pos
 @
 
+In a Bayesian model all effects can be considered as random.
+
+<<message=FALSE>>=
+require("nlme")
+data(Rail)
+require("rjags")
+m5 <-
+"model {
+for(i in 1:nobs){
+  travel[i] ~ dnorm(mu + theta[Rail[i]], tau)
+}
+for(j in 1:6) {
+  theta[j] ~ dnorm(0, tau.theta)
+}
+mu ~ dnorm(50, 0.0001) # Overall mean. dgamma() 
+tau ~ dgamma(1, .001)
+tau.theta ~ dgamma(1, .001)
+residual <- 1/sqrt(tau)
+sigma.rail <- 1/sqrt(tau.theta)
+}"
+jdat <- list(nobs=nrow(Rail), travel=Rail$travel, Rail=Rail$Rail)
+jinit <- list(mu=50, tau=1, tau.theta=1)
+j5 <- jags.model(textConnection(m5), data=jdat, inits=jinit, n.chains=2, quiet=TRUE)
+c5 <- coda.samples(j5, c("mu","theta", "residual", "sigma.rail"), 
+                   n.iter=100000, thin=5)
+@ 
+<<>>=
+vc(c5)
+@
+Compare these JAGS point estimates and quantiles with the results from \code{lme4}.
+<<>>=
+m4
+ranef(m4)
+@
+
 While the \code{lucid} function is primarily a formatting function and uses
 the standard \code{print} functions in R, the \code{vc} function defines an
 additional class for the value of the function and has dedicated \code{print}
 methods for the class.  This was done to allow additional formatting of the
 results.
 
-The second, more complex example is based on a paper by \cite{federer2003proc}
+% ----------------------------------------------------------------------------
+
+\subsection{Example 2 - federer.diagcheck data}
+
+The second, more complex example is based on a model in \cite{federer2003proc}
 in which orthogonal polynomials are used to model trends along the rows and
 columns of a field experiment.  The data are available in the \code{agridat}
 package \cite{wright2014agridat} as the \code{federer.diagcheck} data frame.
@@ -352,33 +397,8 @@ the standard deviation columns.  Fewer digits are shown.  It is easy to
 compare the columns and see that the two optimizers are giving quite different
 answers.
 
-
-% Look at the raw/lucid table of variance components below.
-% Which are the smallest/largest/significant variance components?
-% <<echo=TRUE>>=
-% df2 <- data.frame(effect=c('hyb','region','region:loc','hyb:region','yr','hyb:yr','region:yr','residual'),
-%                   component=c(10.9,277,493,1.30E-04,126,22.3,481,268),
-%                   std.error=c(4.40,166,26.1,1.58E-06,119,4.50,108,3.25),
-%                   z.ratio=c(2.471,1.669,18.899,82.242,1.060,4.951,4.442,82.242),
-%                   constraint=c('pos','pos','pos','bnd','pos','pos','pos','pos'))
-% print(df2)
-% @
-% <<echo=TRUE>>=
-% lucid(df2)
-% @
-
-%Note the similarity in overall shape of the positions of the leftmost
-%significant digit in the 'component' column of the lucid output and
-%the dotplot of the components on a log10 scale.  See \cite{gelman2011tables}.
-%<<fig.height=4>>=
-%df2$effect <- factor(df2$effect, levels=rev(df2$effect))
-%require(lattice)
-%dotplot(effect~ log10(component), data=df2,
-%        cex=1, xlim=c(3,-4), xlab="variance component (log10 scale)",
-%        scales=list(x=list(lab=rev(c('1000','100','10','1','.1','.01','.001'
-%,'.0001')))))
-%@
-
+Note.  Numeric matrices are printed with quotes.  Use \code{noquote()} to
+print without quotes.
 
 % ----------------------------------------------------------------------------
 

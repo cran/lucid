@@ -1,5 +1,9 @@
 News for 'lucid'
 
+Version 1.2 - (Apr 2015)
+
+* Added vc.mcmc.list for prettier summaries from JAGS.
+
 Version 1.1 (Feb 2015)
 
 * Re-worked code.  Primary objective is formatting, not printing.
