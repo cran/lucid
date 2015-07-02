@@ -84,7 +84,9 @@ sigma.rail <- 1/sqrt(tau.theta)
 }"
 jdat <- list(nobs=nrow(Rail), travel=Rail$travel, Rail=Rail$Rail)
 jinit <- list(mu=50, tau=1, tau.theta=1)
-j5 <- jags.model(textConnection(m5), data=jdat, inits=jinit, n.chains=2, quiet=TRUE)
+tc5 <- textConnection(m5)
+j5 <- jags.model(tc5, data=jdat, inits=jinit, n.chains=2, quiet=TRUE)
+close(tc5)
 c5 <- coda.samples(j5, c("mu","theta", "residual", "sigma.rail"), 
                    n.iter=100000, thin=5)
 
@@ -134,7 +136,7 @@ NA_character_, NA_character_, NA_character_, NA_character_),
     0.0350020449620779, 44.4466514904597, 35.23391156595, 53.02113582256,
     30.4668257838069, 101.801694293536, 64.2404210017051)), .Names = c("grp",
 "var1", "var2", "vcov", "sdcor"), row.names = c(NA, -16L), class = "data.frame")
-out <- cbind(d1[, c(2,4,5)], sep="|",d2[,4:5])
+out <- cbind(d1[, c(2,4,5)], sep="   ",d2[,4:5])
 names(out) <- c('term','vcov-bo','sdcor-bo','sep','vcov-ne','sdcor-ne')
 
 ## ---------------------------------------------------------------------------------------
@@ -142,6 +144,9 @@ print(out)
 
 ## ---------------------------------------------------------------------------------------
 lucid(out, dig=4)
+
+## ---------------------------------------------------------------------------------------
+noquote(lucid(as.matrix(head(mtcars)),2))
 
 ## ----finish, echo=FALSE, results="asis"-------------------------------------------------
 toLatex(sessionInfo(), locale=FALSE)
