@@ -1,12 +1,11 @@
-## ----SETUP, echo=FALSE, results="hide"--------------------------------------------------
+## ----setup, results="hide"--------------------------------------------------------------
 library("knitr")
-opts_chunk$set(fig.align="center", fig.width=7, fig.height=7)
+    opts_chunk$set(fig.align="center", fig.width=6, fig.height=6)
 options(width=90)
 
 ## ----echo=FALSE-------------------------------------------------------------------------
-df1 <- data.frame(effect=c(-13.5, 4.5,  24.5, 6.927792e-14, -1.75,
-                    16.5, 113.5000))
-rownames(df1) <- c("A","B","C","C1","C2","D","(Intercept)")
+df1 <- data.frame(effect=c(113.5, -13.5, 4.5,  24.5, 6.927792e-14, -1.75, 16.5))
+rownames(df1) <- c("(Intercept)","A","B","C","C1","C2","D")
 print(df1)
 
 ## ----message=FALSE----------------------------------------------------------------------
@@ -20,7 +19,7 @@ print(antibiotic)
 ## ---------------------------------------------------------------------------------------
 lucid(antibiotic)
 
-## ----echo=FALSE, message=FALSE, fig.height=4, fig.width=6-------------------------------
+## ----dotplot, echo=FALSE, message=FALSE, fig.height=4, fig.width=6----------------------
 require(lattice)
 anti=antibiotic # make a copy of the data to reverse the levels
 anti$bacteria <- factor(anti$bacteria, levels=rev(anti$bacteria))
@@ -29,10 +28,11 @@ cust <- myyscale.component <- function(...) {  #Custom y-scale function componen
   ans <- yscale.components.default(...)
   ans$right <- ans$left
   foo <- ans$right$labels$at
-  ans$right$labels$labels <- rev(c(" 870    ","   1    ","   0.001","   0.005"," 100    ",
-                               "850    "," 800    ","   3    "," 850    ","   1    ",
-                               " 10    ","   0.007", "  0.03 ","   1    ",
-                               "  0.001","   0.005"))
+  ans$right$labels$labels <-
+    rev(c(" 870    ","   1    ","   0.001","   0.005"," 100    ",
+          " 850    "," 800    ","   3    "," 850    ","   1    ",
+          "  10    ","   0.007","   0.03 ","   1    ",
+          "   0.001","   0.005"))
   return(ans)
 }
 
@@ -46,17 +46,26 @@ dotplot(bacteria~ -log10(penicillin), anti,
         par.settings=list(layout.widths=list(left.padding=10,right.padding=10))
         )
 
+## ---- broom1----------------------------------------------------------------------------
+require(dplyr)
+require(broom)
+Orange %>% group_by(Tree) %>% do(tidy(lm(circumference ~ age, data=.)))
 
-## ----message=FALSE----------------------------------------------------------------------
+## ---- broom2----------------------------------------------------------------------------
+Orange %>% group_by(Tree) %>% do(tidy(lm(circumference ~  age, data=.))) %>% lucid
+
+## ----nlme-------------------------------------------------------------------------------
 require("nlme")
 data(Rail)
 mn <- lme(travel~1, random=~1|Rail, data=Rail)
 vc(mn)
 
+## ----lme4-------------------------------------------------------------------------------
 require("lme4")
 m4 <- lmer(travel~1 + (1|Rail), data=Rail)
 vc(m4)
 
+## ----message=FALSE----------------------------------------------------------------------
 # require("asreml")
 # ma <- asreml(travel~1, random=~Rail, data=Rail)
 # vc(ma)
@@ -64,7 +73,7 @@ vc(m4)
 ##  Rail!Rail.var    615.3      392.6     1.6    pos
 ##     R!variance     16.17       6.6     2.4    pos
 
-## ----message=FALSE----------------------------------------------------------------------
+## ----jags, message=FALSE----------------------------------------------------------------
 require("nlme")
 data(Rail)
 require("rjags")
@@ -88,7 +97,7 @@ tc5 <- textConnection(m5)
 j5 <- jags.model(tc5, data=jdat, inits=jinit, n.chains=2, quiet=TRUE)
 close(tc5)
 c5 <- coda.samples(j5, c("mu","theta", "residual", "sigma.rail"), 
-                   n.iter=100000, thin=5)
+                   n.iter=100000, thin=5, progress.bar="none")
 
 ## ---------------------------------------------------------------------------------------
 vc(c5)
@@ -148,6 +157,6 @@ lucid(out, dig=4)
 ## ---------------------------------------------------------------------------------------
 noquote(lucid(as.matrix(head(mtcars)),2))
 
-## ----finish, echo=FALSE, results="asis"-------------------------------------------------
-toLatex(sessionInfo(), locale=FALSE)
+## ----session----------------------------------------------------------------------------
+sessionInfo()
 
