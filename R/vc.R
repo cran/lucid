@@ -1,5 +1,5 @@
 # vc.r
-# Time-stamp: <24 Oct 2016 12:52:48 c:/x/rpack/lucid/R/vc.r>
+# Time-stamp: <24 Oct 2016 13:13:14 c:/x/rpack/lucid/R/vc.r>
 
 # The 'vc' function extracts the variance components from
 # a fitted model.
@@ -230,6 +230,8 @@ print.vc.mcmc.list <- function(x, dig=4, ...){
 
 if(FALSE) {
 
+  # see tests folder
+  
   require("nlme")
   #data(Rail)
   m1n <- lme(travel~1, random=~1|Rail, data=Rail)
