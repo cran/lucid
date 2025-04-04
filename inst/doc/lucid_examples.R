@@ -21,18 +21,15 @@ lucid(antibiotic)
 
 ## ----dotplot, echo=FALSE, message=FALSE, fig.height=4, fig.width=6----------------------
 require(lattice)
-anti=antibiotic # make a copy of the data to reverse the levels
+anti=antibiotic # make a copy of the data to sort levels top-down
 anti$bacteria <- factor(anti$bacteria, levels=rev(anti$bacteria))
 
-cust <- myyscale.component <- function(...) {  #Custom y-scale function component
+#Custom y-scale function component. Be sure to reverse the levels.
+cust <- myyscale.component <- function(...) {
   ans <- yscale.components.default(...)
   ans$right <- ans$left
   foo <- ans$right$labels$at
-  ans$right$labels$labels <-
-    rev(c(" 870    ","   1    ","   0.001","   0.005"," 100    ",
-          " 850    "," 800    ","   3    "," 850    ","   1    ",
-          "  10    ","   0.007","   0.03 ","   1    ",
-          "   0.001","   0.005"))
+  ans$right$labels$labels <- rev(lucid(anti$penicillin))
   return(ans)
 }
 
@@ -46,12 +43,12 @@ dotplot(bacteria~ -log10(penicillin), anti,
         par.settings=list(layout.widths=list(left.padding=10,right.padding=10))
         )
 
-## ---- broom1----------------------------------------------------------------------------
+## ----broom1-----------------------------------------------------------------------------
 require(dplyr)
 require(broom)
 Orange %>% group_by(Tree) %>% do(tidy(lm(circumference ~ age, data=.)))
 
-## ---- broom2----------------------------------------------------------------------------
+## ----broom2-----------------------------------------------------------------------------
 Orange %>% group_by(Tree) %>% do(tidy(lm(circumference ~  age, data=.))) %>% lucid
 
 ## ----nlme-------------------------------------------------------------------------------
@@ -73,34 +70,34 @@ vc(m4)
 ##  Rail!Rail.var    615.3      392.6     1.6    pos
 ##     R!variance     16.17       6.6     2.4    pos
 
-## ----jags, message=FALSE----------------------------------------------------------------
-require("nlme")
-data(Rail)
-require("rjags")
-m5 <-
-"model {
-for(i in 1:nobs){
-  travel[i] ~ dnorm(mu + theta[Rail[i]], tau)
-}
-for(j in 1:6) {
-  theta[j] ~ dnorm(0, tau.theta)
-}
-mu ~ dnorm(50, 0.0001) # Overall mean. dgamma() 
-tau ~ dgamma(1, .001)
-tau.theta ~ dgamma(1, .001)
-residual <- 1/sqrt(tau)
-sigma.rail <- 1/sqrt(tau.theta)
-}"
-jdat <- list(nobs=nrow(Rail), travel=Rail$travel, Rail=Rail$Rail)
-jinit <- list(mu=50, tau=1, tau.theta=1)
-tc5 <- textConnection(m5)
-j5 <- jags.model(tc5, data=jdat, inits=jinit, n.chains=2, quiet=TRUE)
-close(tc5)
-c5 <- coda.samples(j5, c("mu","theta", "residual", "sigma.rail"), 
-                   n.iter=100000, thin=5, progress.bar="none")
+## ----jags, eval=FALSE, echo=TRUE, message=FALSE-----------------------------------------
+# require("nlme")
+# data(Rail)
+# require("rjags")
+# m5 <-
+# "model {
+# for(i in 1:nobs){
+#   travel[i] ~ dnorm(mu + theta[Rail[i]], tau)
+# }
+# for(j in 1:6) {
+#   theta[j] ~ dnorm(0, tau.theta)
+# }
+# mu ~ dnorm(50, 0.0001) # Overall mean. dgamma()
+# tau ~ dgamma(1, .001)
+# tau.theta ~ dgamma(1, .001)
+# residual <- 1/sqrt(tau)
+# sigma.rail <- 1/sqrt(tau.theta)
+# }"
+# jdat <- list(nobs=nrow(Rail), travel=Rail$travel, Rail=Rail$Rail)
+# jinit <- list(mu=50, tau=1, tau.theta=1)
+# tc5 <- textConnection(m5)
+# j5 <- jags.model(tc5, data=jdat, inits=jinit, n.chains=2, quiet=TRUE)
+# close(tc5)
+# c5 <- coda.samples(j5, c("mu","theta", "residual", "sigma.rail"),
+#                    n.iter=100000, thin=5, progress.bar="none")
 
-## ---------------------------------------------------------------------------------------
-vc(c5)
+## ----eval=FALSE, echo=FALSE-------------------------------------------------------------
+# vc(c5)
 
 ## ---------------------------------------------------------------------------------------
 m4
