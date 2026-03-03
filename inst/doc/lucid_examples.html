@@ -50,8 +50,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -62,7 +63,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -547,61 +548,7 @@ penicillin values on a reverse log10 scale. The values are also shown
 along the right axis in <code>lucid()</code> format. Note the similarity
 in the overall shape of the dots and the positions of the left-most
 significant digit in the numerical values along the right axis.</p>
-<p><img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkAAAAGACAMAAAByRC0tAAAA2FBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZrYAcrI6AAA6ADo6AGY6OgA6OmY6OpA6Zjo6ZmY6ZpA6ZrY6kJA6kLY6kNtmAABmADpmAGZmOgBmOjpmOmZmOpBmZjpmZpBmkJBmkLZmkNtmtrZmtttmtv+QOgCQOjqQOmaQZjqQZmaQkGaQtpCQtraQttuQ2/+2ZgC2Zjq2kDq2kGa2tma22/+2/7a2///bkDrbkGbbtmbbtpDbtrbb27bb2//b/7bb///l5eX/tmb/tpD/25D/27b/29v//7b//9v////zpHaKAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAcpElEQVR4nO2dC3/bNpbFaTd2nUmyradymyY7nbaS000mtptmrbSbrEerROL3/0YLkLggeSnwBRIEoPP/tZH5AqXLI/CBo3uTFAALkrnfAAgbCAhYAQEBKyAgYAUEBKyAgIAVEBCwAgICVkBAwAoICFgBAQErICBgBQQErICAgBUQELACAgJWQEDACggIWAEBASsgIGAFBASsgICAFRAQsAICAlZAQMAKCAhYAQEBKyAgYAUEBKyAgIAVEBCwAgICVkBAwAoICFgBAQErICBgBQQErICAgBUQ0DgMi+Ogrfw6ZH69m3CBgIAVEBCwAgICVkBAwAoICFgBAQEiiZOpojVRuwETZ0ggIGfEGRIIyBlxhgQCckacIYGAnBFnSCAgZzSE5Ouvnb2LsYlAQLurJDlrWH57cuPsvTRhDMnXGQ7fyZjQp9rfJcmleF3JW/uF+OPDk5PFCO06Yfvsrkkj16aFr+6neDcm4hbQ+mfx/zKP6VooZyP/X9q364T1Ur7d9PPzJPn2QXQ5yeLdxaP7dP9bkjwTn+f6zfPk0fs0/b/nyck/0/zLcvbjzfZCflmW9e0IWt/U7k40+05829TydfLNRSI3p/Xlev/xrDUkX38dsoK0gJa5cCRSRPIrvb20b9cF+1f3+5figP2X+P/zP8SMzcnlp8+fsp7ns1iwOvuUfn4hDvwnIQLxOe9+FfO/v9E9EN9Ot6vWN7V7/Tb9sloUy9dCpXfl6e8e0j+Lk2vy78OQgAyLPYcO9O7HJ0//8ZD9mekmE1Dx7emNSwFtxBu+W6Z5j3J6n3efpH/xQbJTmPiGbEXP8GSZ7l7ShrmA+HYatb6p3Sw8YpZeLr+E5WnRQyVP3+vm4j6FbcWH/5BfK8g4BCWgW3nAzkvCOCyg3fdvsw+3e/mg1ssFxLcjivUPt0sC0suVgIr10/TLh1IPZHr/UQhICiaPzz4Lq+y6AzmFZYKQ7/ruOzVHCaF8Cvvr6f32qXh5Lj7XrVj8Uf4hVvjwt4fadgq9vqld8Zqdwmi5EpCevhanyj+LGMZ9G7/+Nb+QJtlsf85OC9btTo84Y5zciFv5kxt5cfzV5YO8rc8ujtXF7u3Jm4vsInotrm1/F/f0cv5XondJ/8zn8+0Ivf7hdvOL6IXeXqy+3MhbWDWdvvrPJGvfeUhcom/jf8tv49UZTJzP8rt523Zj5/fuQYozJBE8SJyPVX673pE4QwIBOSPOkEBAzogzJBCQM+IMCQTkjDhDAgE5I86QQEDOcBcSl88lj0BAG/n8r/RAr2nFRfnVwFB/kauQuB0ZMX2qj++e2DxH9ElA2aPRP5ssZ8Wai+rrYQb6i45LQLWh6dHadU8moEvt51knS/mn9gVp/w4XEPmBCJomfxENaah2yV9UtN/NDzQyju1FRyEgcVyz047y8+hBT+UL0n4fJiDyAxE0Tf4iGlTVPiLVA1H7Hf1AI+PYXnQUApKuwx+13YDbLgq/DxOQ8gNpaFrZQ7RdRIeKCairH2hkcAobm2x4mI5qWhJQPo5V8u9UBER+IEJPdxVQ2tEPNDIQ0NhkPdBVSUCL9K+LReEL0n6fqoC0H0ihp5W/qHQKU5spfxG1390PNDJ+3MZHI6DsNl5c1Go/z2dlhidfUMXvc3pPr9oPRKhp7S9SF9GFj0j5i6j9o/IDcTKbaKdb337tHjFxhuQIHiT6QpwhgYCcEWdIICBnxBkSCMgZcYYEAnJGnCGBgJwRZ0ggIGcMCYn/vzg8AgGtk8PPtNaJ8YeTt4vD6912erha+Ikq6/cPSQi/eaZPpf0/lBcopPxALciBiUO/8193/OVt1/Wqe6wRt4Bo6ILyAgWVH6iF9SIfLyV/DvmA1j9V8/lQ/h/qQfh6NJ/7hGg98geRgJizsXdIgkgcxAVEeYFCyg/UxlqdwMifQz6g9Wk1n0+RHygXAF/P5BOi9fTg6mFnY28/UBCJgw4K6FlY6V3aoB5I+XN4OpYD+YFyOwdbj+Zzn5D2FWl7h0FAvd94AB3Q4R4oOgHpP6U/R+cHquXz4QKqrqfnc5/Qy1JirqMXEOUFCig/UCvZYXx1r/055APi+XyYgGrrGXxCer22U9iAt+67fOoCorxA4eQHaiW/jRenKPLnKB8Qz+dDvh7tB2LrGX1C2ldU9geVfEUKj0IyIvSptP+H8gIhP9DYxBmSI3iQ6AtxhgQCckacIYGAnBFnSCAgZ8QZEgjIGXGGBAJyRpwhgYCcEXei8VDaLSHHSHdXyRkf9T6Qv6fq4+mYB2gAjX4hY0hCGLEwohONq3phcmQxe3gagB9IDjHcXZaHDnKM+XuKLTvlARqZuAVE9cJo/CsEP9B6ub9W2fUzIZCvp5y/R/p/qKfpmAdodfL6Inl0U6v/pfL+7K4ePT/9o1Q3TK/H/ULF/jJMIQnC9mNEC0jVCyMBheAHWv/yvCIE8vVQ/p4iP091eVseoNW3n7LiLbX6X8r+8fjmw+n7u2LwlNbj7RX7yziOemHyFCa/vSHYOdbJP3/T+TZKeX6oPliRn6e6vC0PEG3P/UI0/SzdnJfTuxj8QqX9ZcR9CivVCyscib4LaKlqUzEDGAkg1fl5qstb8gBxAdUMaC0CqtcZy4lbQOU8SfKTh+AHyg5c9h6VBVX5enT+Hp2fp7q8JQ9QcQpjfiGV94cEVJzCDH6hYn8Zcd/GU72wa/Ghfz8Pwg+UWZ13V2eFfyf39ej8Pcr/w5e35gG6/ld2EV6r/5Xn/fn7VXK+SRbiklpfRBv8QrSdu5DMgL6NV/XC5Gt253DEfqD2xwCDCDkkZgJ+kDgVK6vMWmYCDkkDEJAz4gwJBOSMOEMCATkjzpBAQM6IMyQQkDPiDAkE5IymkIT7JNE/Ae1X8pnexnwrPaBeV7e8Pn3bN/uJDu7PHJKQxzK4H8iD/EDbC/FGrp+aa28NrNdlhm3X/UFiLz9R3AIiP5AH+YG23766316+kvW3ZPGts1r+HfL7kO9GLad6XaZ8PzU/D+2P1/mi9nk7aj96PW3fUO+L+4+61gsL2hDE/UAe5AfaXm4Wd0vRK0gRy0FNnn+H/D7ku6Hl1JOY8v1wP4+GVdmh9nk7Ol8Qs2/oQVXmP+paLyxoQxD3A3mQ3mV7uX/+7EEc1H0uolr+HbJbKN9NYZvIhWDK98PtGMUemYConBNrx5QvSL8v5j/qXi8s4A6o5gfyQkDy31fZgZMaquXfUQe48N3QgHcuBFO+n74C4u2Y8gWV8gJV/Eel6Yy4BUR+IA/yAxUC2r96LY8Ez7+j/D7ad0PLqV6XKd8P9/NoWJ0v8hPxdnS+ILUeP4Vx/1GPemGhyqfuB5o/P5A4c5zIC+Ls3JEZQln+He330b4btZzqdZny/XA/j95ltc5XUQ+s2o7ej1qvkkdIXkRz/9FR1QsjP5Bf+YHsit55RtwC8rHdW1VsORIgIB/aDZg4QwIBOSPOkEBAzogzJBCQM+IMCQTkjDhDAgE5Y9KQzPYk8hgEtEqS5OTn8dprzyvU0w9kzYxjIaZPtX93UU5NMlq7c7D7QT4tPvBEaah/aFheoeMS0Fr+xNniObBvApJjX9rXkw89cP+Q9vkwH8+t6HBEp3NW8wHt8iEN7Uuq1Rvr6AeyZk5DUdOniklAezniqXw9uigK8w/RKDvz8WRykUkcaj6gt+mX1aKUX4j7jzr6gayZ01BkPND7VWIxGO+XgK7ENdCvqa4no+0XzD9EAmE+nnT/4iETHbdxPFNN6vxCbPS/sx/IGg9PYYIvv0XUA2UcFtABo1jFxyMXZFlkDAIq8gsxAaVd/UDW+Ckg7xNMdYUJqDiFMf8Q+XyYj0dK7PqmtLzkA5KnsCK/EBNQDz+QNd7dxosPv789H7/dOVjlo/oVX09WHLfqHyKfD/fxCNZZJLgPKLuIXmhfUs1/dFR+IM4X6Q+K5DZ+SnrcaMQZkmN4kDgZq6TPs7I4QwIBOSPOkEBAzogzJBCQM+IMCQTkjDhDAgE5I86QQEDOiDvReCjtSjr4e3ZXk2Tq5fTKO9SSncP+3cwCzw8UQr0wo7+nvM7LxsVzELeAQqoXRv4e8ttwP4+YPvnlJQ1ZmOt76fxCVd9Ord6X8vno9skHpPMOqfZ4niBWh8wUkqDTA9XyA4VQL4z8PeS3YX6e3Yv3okM904Omxvpe5OPh/p9avS/l89HZO5QPSPt+VHs8TxCrQ4Z6YX2YVEDK36P8NtzPs1FeC7JtGMszkY+H+39q9b7UKHuRHqZqLKP5PE8Qq0MW9ykspHph2p6R+224n6ergMp1wsq+nXq9r54CovfF6pDFLaCQ6oWRgMhvw/w8tVOYob6X9vEw30693hcJiPxCN+wUVkpMVcoTxOuQxX0bH1K9MOXv0X4b7ufJLqLFfTxdRBvqe+n8Qtz/w+p9aR8Rta98QOT7KeqKVfME8TpkcT4a4/mBUC+sGwN+cBBnSEJ8kDg7/XxARJwhgYCcEWdIICBnxBkSCMgZcYYEAnJGnCGBgJwRZ0ggIGe4C4nL55IxCkg+y/qmNAzTns+nul7X9RXllOVNuAqJ25ER06f6+O6JVZLvOQUkn6j/VRnH65rPh9YzrG/IJ7SGgA5hlyV+VgF9lz/lK/w4UhBmXxD5friAmJ+H8glRHbPVyWuxvcza8ZOVH2hkHNuLYhTQ/u4i+fZT2Y+TZ9Mw+YK074cJiPl5dA9EdcxWYifydX1q5QcaGcf2ohgFJJEHsPDjUDqWg7aOwvfDBMT8PFpAqo6Zrltm6wcaGZzCxmD3w33Jj9MooJJ9uiIg7ucproHyOmZGAaU9/UAjAwFZkh24bcWPUxEQ9wUVvp+qgLifR+cTojpm+hRm7QcaGT9u4wMWkPTj3LO8Paf/bfQFVXw/p/c6vw/z8+h8QlTH7PpfWXFe+IEOcSuDaPHbqjijRWx0pcIexBmSGB8kTo2qY7bq+Q2LMyQQkDPiDAkE5Iw4QwIBOSPOkEBAzogzJBCQM0YOiSe/JYOAnDFqSLz5NavPAnLk6+nq5xmwn0r+oOMQkPYBeZAfaDJfD1+bC4jGvFrrifXaz5gC8iclTP1T5U9ZfcgPNJGvR/t15BDG2Y833M9T8v3IV72/cv6hg/th+YR4zzSmncOflDAmAfmQH2gqXw/5de5+Fet/f1Pz87AeSO+PBk1N++H5hFjPdBynsIqAPEjvMoWvR/l1eFoYXgZKC4hG8Vv2U8snBAF5IKBJfD2UV0j9vr2ngIz74fmEphSQx7fx+af3ID/QZL4eygck75E+Pl/W/Dza95O/FgJS+YEM+6nlE5pWQJ5gEpAH+YEm8/XovEJi+6/e1v082veTvRb5hSg/kGk/LJ+Qnj9eSDyEfyrtA0J+oLGJMyQ+P0iMjDhDAgE5I86QQEDOiDMkEJAz4gwJBOSMOEMCATkj3JA0PbOEgJwRakiaR00iFNBGPsoqJw4vuK34d4rR8l51vzr4hw62d2QC4n4gmlavbfmDZk3vskwr1XcOrNHLL6RRY2Qd8wFxAhVQi/XI9Km4H4imi/nNP32eXUCXpXpgyvdT9DhVAdF8Q90w8huRT0j7h8j3Y9oPa89RepexabEemQ409wPRdDHfYwEl+U9HyQdEvp96z1N9NdUNI7+R7oGUf4h8P6b9sPYC7YEGnsK4nYOmi/keC0gWRhE9gfIBmewXtVdD3TA9Wl8+hWXTKgSm/bD2IKCQBCT+Kep+6boWzQJKD9cNaxNQw34q7YUqoGG38dwPRNPFfL8F9PlqqX1A5PtpE5CpbpgWjPIJMQEZ98PaC1dATZg+lfYD7a8yRwtNFz4hbwWU3cbLy1hd9yv3/XD/Ts3PY6gbpv1CyidE07qOmGE/vL3jEpD2A+1yAelp9dqWPyjOaFkRZ0gifJDoK3GGBAJyRpwhgYCcEWdIICBnxBkSCMgZcYYEAnJGICHp+YNFCMgZQYSk90+mAxRQNiqeP6Cr+m561vmagEZf0ZEJqMUPJI/iaUP6nCmjtTmX4weHdt7T3+OWEATUP+/QUD9Q2+/mpxaQ1IrqcXTdLp3Ohep2KX9ObTp/1fl+mG+H2uN5h9T65vxE1AOSP6jII5SHxKmNZxj98w4N9QPNLiBSUVoUPdGDmCpJAvlz+LTOC6S+ENwHpIuosLxDlMXDlJ+I5yMq8ghNHpLRGO0U1mbnkKeww77j5nbHgAuIyi5RNg6VpoX8OXya5wWq+YB4GSfK+0PThvQy+v0of1Apj1AGBFT1AzX3Qi5OYa0Ceii9zWKa5wWSlH07XEC1RFQtAir8QdW3HYSARruNb/cDpbUIdWl3DKSAPr8oTlmmUxj5c/i0zguk8v0w306tDhjl/VHrG/MT8XxERR6hyUMyH0P9QNciOL+f9293BOg2XvtuVN2uIk9PqfjtV2/Tg9PylfL9cB9QrQ5YnvdHrf93U36iWj4i2m76kMzIUD+QDF7pDqN7uxPQs26X8/YURyYgT9s9QN+6Xa7bIyAgH9oNmDhDAgE5I86QQEDOiDMkEJAz4gwJBOSMAEIyIHk5BOQM70MyqHxCDALidcUYtXw+Y/uGVHu3J83Pj45MQC1+oJX69WfvdidA1xUz1Peq5/MZ2zdUGpMz47uAhtUgG+oHkseq6TA4FVBeV0zn71F+HO0TUvl8xPKl6I7kQ8JRfEOsjpkQ0Bs1BHJ4fd/9QMNqkA3PD9Rc0M/pKUzVFaM3RH4cPSiq8vlI8Y/pG2J1zNLV2adskNewvu890LinsA52jkZPmetoZQdKCYjy+jBbRiae8qi5rW+I1TGr7S+0/ECuBdSYKtB1tHY/3JOAdF4ffkDFP3kHNI5viNcxq+8vuPxAI97Gt/uB9o0laR1Gi+qK6fpe5Mfhvh4x8To/rqP4hngds+wU9tfTe9P6AQhoAMPzAzW7op0KSNUVozpf5Mfhvh4hI/lZRvMNVeuY3d+evMn3b1j/uATU5gdqS3brQ7Tqt9XNSbEmxoeQjE8MDxIN1Hw9t3ny1rnwICQTELGAfCPOkEBAzogzJBCQM+IMCQTkjDhDAgE5w7+QDHhuWAMCcoZvIRk0clEjZAHN7QPqyZEJyOAH2r+7aPxBYWu7IzK/D6gXnglomP2nRl8/0Fr+pLnDYXAioHl9QHo51Q2r5hHy3Q80zP5To68fSOKLgOb2ARWj/HndMJZHyHc/0LSnMJOdI92vkpbcUo3tjs2cPiBetYflEfLdDzSTgNL0y2+e9ECSOX1AvG4YF17qux9oytt4kx9IsjXf+bS2OyKz+4BoOamF5RGCH+iQH0gEZX/bkBeord0RmdsHRMt13bBqHiH4gQ76gb6I4F56chtvwjMfEHFkAvK03Q745gMiICAf2g2YOEMCATkjzpBAQM6IMyQQkDPiDAkE5Ax3IRnjAWFXICBnuArJOEMUXQlZQC1+oAm4S5IT88/hCr/RwbphxyWgj++eWD1888EPpGlb3pXt05ZHqI1+I0cCGsnn0xXzp7J7ejuHH4j5csgXpJfb+oBuZTtnRR0w2o7nCaKeaB4/0Eg+n66ELCDuB+K+HF2ERS239QHRKDK1T+vzPEH0OpMfyI9TWAgCkpT9QNyXo8tA5cutfUBKQNS+Xp/nCaLXmfxAEFAfSn6gmi/HKKCBdcSUgArBqe14nqDStdA8fiA/buO9FxD3A9V8OfoUppbb1hGjUxi1r9av5QnSvqNj9gMFIaCqH6jmy1G+IO0XsvUBZZlpz4v2aX2WJ0j7jo7aD0R3HGO365KJ6n4NxYeQjE/IDxJbmKru11A8CMkERCwg34gzJBCQM+IMCQTkjDhDAgE5I86QQEDOCDckTQ8mISBnhBqS5qERnwXk2O9TyyfEMecXOuj/4RyZgFrqhbX5hcaIlmu/T3Pq9GyN6mfut99ABdTiL+qbH6iY3zzUMYqAHPt9VD4h1f7u6tHz0z/k/qgdSs6g8g3p/Wr/T3P7nuUH6kqLv6hvfqBi/vQCcu33oXxCqv3t45sPp+/vikFXbRijfEO6B8rnt7QfaA808BTWXu5pegFJXPp91HxqX3zMzbmYSe2kOsMZ5RuqCqitfQhoDgG59Puo+VqAJgHpfENcQM3thyqgYbfx7fXCJheQc78PHXjVPgmodgrT+Ybofan5Le2HK6Am+uYHKuqFORCQW7+PzieUt/+/V8n5JlmIS2LVjvb5qHxD1fel8g41tH9cAmqrF9bmF3IRrfn8PoPMdkcmIE/bLTGb32dgviEIyId2AybOkEBAzogzJBCQM+IMCQTkjDhDAgE5I5CQ9PxVIgTkjCBC0vt30SEKyH1eIIL7fvT07qr9icKRCajFDyRHHE8b7DBTRst5XqAO6AE6MyEIqH9yoaF+oG1LyZ5JBeTWJ3SbJIuNfGhJvh/aH02L/Z788rJUR+yb3FcUoB+of3KhoX6gOQXk3CckvzSX9FexPxqFf/FevKWzUh2xR7mvKEQ/0GinsDY7h/x6lxMPdG13LFz6hPYvHtS4m7Zz0Ba6Vk8WE1ZHLEQ/kDMBSZp6oamj5TQv0HqZd0DNAqrXEQvSDzTSbXy7H6j5wnHCaLnPC7R7qQb+DwqITmFFHTElIPiBGvxA17L4bkPdsEkF5DgvkJCE/KTV/D/LwgeUXUSL+3iVJ0j7iuAHkq8GP5AMelP57zmj5VleIOLIBORpux3wLS8QAQH50G7AxBkSCMgZcYYEAnJGEidTRWuido+NYXEctJVfh8yvdxMuEBCwAgICVkBAwAoICFgBAQErICAAhgABASsgIGAFBASsgICAFRAQsAICAlZAQMAKCAhYAQHZsf2b/NnIKss/oF56btwLvYv+m04EBGRF/luY23P5H7303LgXtIsBm04EBGTDOvlG9AS7729kj6Beem7cC9rFgE2nAgKy4X8e5OHc5iJSLz037gXtYsCmUwEB2WEhoAEXMsUuIKBIgIDmfgOBAwHN/QYCZzv8InqACopdQECRkB3IgbfxA1SgdwEBRUJ2IHdX2eM99dJz487I9Eh6FxAQiAMICFgBAQErICBgBQQErICAgBUQELACAgJWQEDACggIWAEBASsgIGAFBASsgICAFRAQsAICAlZAQGOxu1oeXqC8X5skOckM0/uVYUXeivxb/J//V8ztZbueHAhoLEwCUj8i3Qj1bDIFrfv9enXJG96cNdR/cw4ENBYGAW0S9bt5Wf5P+pmNPZWpVb5BYw/mHAhoLLLjLORCNeuTk9ey00kWGymg7YU86mvxp5zcPn5zoVZc51vsrn65yutzLtXMc3YKozXEUp+6IAhoLORB3mQSkD/QkEpR1zy5gB7fqD9lL7S9SPKV07VYZ3uxEFuJP8REJiA5c3e14ALK10jVmdATIKCxEAc5P0+J45v3N7clAeUHfSMVskgzyWQ9STYl11CzlVQW1GJFQAvVkeWtewIENBbiIOdHVvy70dfNaV1AWgJiKp+thEMXPCQQLqBlSv8sTG/CPRDQWGgBiT/WNQHpU1jehzxWctqocoJVAT2+oRYhoKMguxBu7oH0RXTeA2kB0eUMeqCjp34NtC4JSN/Gl66BbuU10FJvrQVkugYiAeEaKEqa78KKB4n5XVh2h69uuOTVdllA2cz96twkINyFRUntOdDpH/nP2HMByfPcCd3Kby9+usif6WSnPzGnIiDDcyASEJ4DHQmbg6kWylc5g+j3KHtqIKApyARiutZdn9sJCGNhR0B2e24QyX61tBEQRuNBTEBAwAoICFgBAQErICBgBQQErICAgBUQELACAgJWQEDACggIWAEBASsgIGAFBASsgICAFRAQsAICAlZAQMAKCAhYAQEBKyAgYMX/A5BHtsvb/hNvAAAAAElFTkSuQmCC" style="display: block; margin: auto;" /></p>
-</div>
-<div id="example-using-lucid-with-broom" class="section level2">
-<h2>Example: Using <code>lucid</code> with <code>broom</code></h2>
-<p>The <code>broom</code> package by <span class="citation">Robinson
-(2016)</span> can be used to collect statistics from fitted models into
-tidy data frames. For example, using the <code>Orange</code> tree data,
-it is possible to fit a separate regression line for each tree. (The
-straight-line regression here is not entirely sensible, but illustrates
-a point.)</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">require</span>(dplyr)</span></code></pre></div>
-<pre><code>## Loading required package: dplyr</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">require</span>(broom)</span></code></pre></div>
-<pre><code>## Loading required package: broom</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>Orange <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Tree) <span class="sc">%&gt;%</span> <span class="fu">do</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(circumference <span class="sc">~</span> age, <span class="at">data=</span>.)))</span></code></pre></div>
-<pre><code>## # A tibble: 10 × 6
-## # Groups:   Tree [5]
-##    Tree  term        estimate std.error statistic   p.value
-##    &lt;ord&gt; &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-##  1 3     (Intercept)  19.2      5.86         3.28 0.0221   
-##  2 3     age           0.0811   0.00563     14.4  0.0000290
-##  3 1     (Intercept)  24.4      6.54         3.73 0.0135   
-##  4 1     age           0.0815   0.00628     13.0  0.0000485
-##  5 5     (Intercept)   8.76     8.18         1.07 0.333    
-##  6 5     age           0.111    0.00785     14.1  0.0000318
-##  7 2     (Intercept)  20.0      9.35         2.13 0.0859   
-##  8 2     age           0.125    0.00898     13.9  0.0000343
-##  9 4     (Intercept)  14.6     11.2          1.30 0.249    
-## 10 4     age           0.135    0.0108      12.5  0.0000573</code></pre>
-<p>Extracting information from the sea of numbers above is difficult.
-The <code>lucid</code> function comes to the rescue, simply by adding
-one more step to the sequence of pipes.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>Orange <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Tree) <span class="sc">%&gt;%</span> <span class="fu">do</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(circumference <span class="sc">~</span>  age, <span class="at">data=</span>.))) <span class="sc">%&gt;%</span> lucid</span></code></pre></div>
-<pre><code>##    Tree        term estimate std.error statistic   p.value
-## 1     3 (Intercept)  19.2      5.86         3.28 0.0221   
-## 2     3         age   0.0811   0.00563     14.4  0.000029 
-## 3     1 (Intercept)  24.4      6.54         3.73 0.0135   
-## 4     1         age   0.0815   0.00628     13    0.0000485
-## 5     5 (Intercept)   8.76     8.18         1.07 0.333    
-## 6     5         age   0.111    0.00785     14.1  0.0000318
-## 7     2 (Intercept)  20        9.35         2.13 0.0859   
-## 8     2         age   0.125    0.00898     13.9  0.0000343
-## 9     4 (Intercept)  14.6     11.2          1.3  0.249    
-## 10    4         age   0.135    0.0108      12.5  0.0000573</code></pre>
-<p>After formatting, information in the table almost jumps out at the
-reader, reducing the amount of cognitive effort needed for
-interpretation.</p>
+<p><img role="img" aria-label src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkAAAAGACAMAAAByRC0tAAAA2FBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZrYAcrI6AAA6ADo6AGY6OgA6OmY6OpA6Zjo6ZmY6ZpA6ZrY6kJA6kLY6kNtmAABmADpmAGZmOgBmOjpmOmZmOpBmZjpmZpBmkJBmkLZmkNtmtrZmtttmtv+QOgCQOjqQOmaQZjqQZmaQkGaQtpCQtraQttuQ2/+2ZgC2Zjq2kDq2kGa2tma22/+2/7a2///bkDrbkGbbtmbbtpDbtrbb27bb2//b/7bb///l5eX/tmb/tpD/25D/27b/29v//7b//9v////zpHaKAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAcpElEQVR4nO2dC3/bNpbFaTd2nUmyradymyY7nbaS000mtptmrbSbrEerROL3/0YLkLggeSnwBRIEoPP/tZH5AqXLI/CBo3uTFAALkrnfAAgbCAhYAQEBKyAgYAUEBKyAgIAVEBCwAgICVkBAwAoICFgBAQErICBgBQQErICAgBUQELACAgJWQEDACggIWAEBASsgIGAFBASsgICAFRAQsAICAlZAQMAKCAhYAQEBKyAgYAUEBKyAgIAVEBCwAgICVkBAwAoICFgBAQErICBgBQQErICAgBUQ0DgMi+Ogrfw6ZH69m3CBgIAVEBCwAgICVkBAwAoICFgBAQEiiZOpojVRuwETZ0ggIGfEGRIIyBlxhgQCckacIYGAnBFnSCAgZzSE5Ouvnb2LsYlAQLurJDlrWH57cuPsvTRhDMnXGQ7fyZjQp9rfJcmleF3JW/uF+OPDk5PFCO06Yfvsrkkj16aFr+6neDcm4hbQ+mfx/zKP6VooZyP/X9q364T1Ur7d9PPzJPn2QXQ5yeLdxaP7dP9bkjwTn+f6zfPk0fs0/b/nyck/0/zLcvbjzfZCflmW9e0IWt/U7k40+05829TydfLNRSI3p/Xlev/xrDUkX38dsoK0gJa5cCRSRPIrvb20b9cF+1f3+5figP2X+P/zP8SMzcnlp8+fsp7ns1iwOvuUfn4hDvwnIQLxOe9+FfO/v9E9EN9Ot6vWN7V7/Tb9sloUy9dCpXfl6e8e0j+Lk2vy78OQgAyLPYcO9O7HJ0//8ZD9mekmE1Dx7emNSwFtxBu+W6Z5j3J6n3efpH/xQbJTmPiGbEXP8GSZ7l7ShrmA+HYatb6p3Sw8YpZeLr+E5WnRQyVP3+vm4j6FbcWH/5BfK8g4BCWgW3nAzkvCOCyg3fdvsw+3e/mg1ssFxLcjivUPt0sC0suVgIr10/TLh1IPZHr/UQhICiaPzz4Lq+y6AzmFZYKQ7/ruOzVHCaF8Cvvr6f32qXh5Lj7XrVj8Uf4hVvjwt4fadgq9vqld8Zqdwmi5EpCevhanyj+LGMZ9G7/+Nb+QJtlsf85OC9btTo84Y5zciFv5kxt5cfzV5YO8rc8ujtXF7u3Jm4vsInotrm1/F/f0cv5XondJ/8zn8+0Ivf7hdvOL6IXeXqy+3MhbWDWdvvrPJGvfeUhcom/jf8tv49UZTJzP8rt523Zj5/fuQYozJBE8SJyPVX673pE4QwIBOSPOkEBAzogzJBCQM+IMCQTkjDhDAgE5I86QQEDOcBcSl88lj0BAG/n8r/RAr2nFRfnVwFB/kauQuB0ZMX2qj++e2DxH9ElA2aPRP5ssZ8Wai+rrYQb6i45LQLWh6dHadU8moEvt51knS/mn9gVp/w4XEPmBCJomfxENaah2yV9UtN/NDzQyju1FRyEgcVyz047y8+hBT+UL0n4fJiDyAxE0Tf4iGlTVPiLVA1H7Hf1AI+PYXnQUApKuwx+13YDbLgq/DxOQ8gNpaFrZQ7RdRIeKCairH2hkcAobm2x4mI5qWhJQPo5V8u9UBER+IEJPdxVQ2tEPNDIQ0NhkPdBVSUCL9K+LReEL0n6fqoC0H0ihp5W/qHQKU5spfxG1390PNDJ+3MZHI6DsNl5c1Go/z2dlhidfUMXvc3pPr9oPRKhp7S9SF9GFj0j5i6j9o/IDcTKbaKdb337tHjFxhuQIHiT6QpwhgYCcEWdIICBnxBkSCMgZcYYEAnJGnCGBgJwRZ0ggIGcMCYn/vzg8AgGtk8PPtNaJ8YeTt4vD6912erha+Ikq6/cPSQi/eaZPpf0/lBcopPxALciBiUO/8193/OVt1/Wqe6wRt4Bo6ILyAgWVH6iF9SIfLyV/DvmA1j9V8/lQ/h/qQfh6NJ/7hGg98geRgJizsXdIgkgcxAVEeYFCyg/UxlqdwMifQz6g9Wk1n0+RHygXAF/P5BOi9fTg6mFnY28/UBCJgw4K6FlY6V3aoB5I+XN4OpYD+YFyOwdbj+Zzn5D2FWl7h0FAvd94AB3Q4R4oOgHpP6U/R+cHquXz4QKqrqfnc5/Qy1JirqMXEOUFCig/UCvZYXx1r/055APi+XyYgGrrGXxCer22U9iAt+67fOoCorxA4eQHaiW/jRenKPLnKB8Qz+dDvh7tB2LrGX1C2ldU9geVfEUKj0IyIvSptP+H8gIhP9DYxBmSI3iQ6AtxhgQCckacIYGAnBFnSCAgZ8QZEgjIGXGGBAJyRpwhgYCcEXei8VDaLSHHSHdXyRkf9T6Qv6fq4+mYB2gAjX4hY0hCGLEwohONq3phcmQxe3gagB9IDjHcXZaHDnKM+XuKLTvlARqZuAVE9cJo/CsEP9B6ub9W2fUzIZCvp5y/R/p/qKfpmAdodfL6Inl0U6v/pfL+7K4ePT/9o1Q3TK/H/ULF/jJMIQnC9mNEC0jVCyMBheAHWv/yvCIE8vVQ/p4iP091eVseoNW3n7LiLbX6X8r+8fjmw+n7u2LwlNbj7RX7yziOemHyFCa/vSHYOdbJP3/T+TZKeX6oPliRn6e6vC0PEG3P/UI0/SzdnJfTuxj8QqX9ZcR9CivVCyscib4LaKlqUzEDGAkg1fl5qstb8gBxAdUMaC0CqtcZy4lbQOU8SfKTh+AHyg5c9h6VBVX5enT+Hp2fp7q8JQ9QcQpjfiGV94cEVJzCDH6hYn8Zcd/GU72wa/Ghfz8Pwg+UWZ13V2eFfyf39ej8Pcr/w5e35gG6/ld2EV6r/5Xn/fn7VXK+SRbiklpfRBv8QrSdu5DMgL6NV/XC5Gt253DEfqD2xwCDCDkkZgJ+kDgVK6vMWmYCDkkDEJAz4gwJBOSMOEMCATkjzpBAQM6IMyQQkDPiDAkE5IymkIT7JNE/Ae1X8pnexnwrPaBeV7e8Pn3bN/uJDu7PHJKQxzK4H8iD/EDbC/FGrp+aa28NrNdlhm3X/UFiLz9R3AIiP5AH+YG23766316+kvW3ZPGts1r+HfL7kO9GLad6XaZ8PzU/D+2P1/mi9nk7aj96PW3fUO+L+4+61gsL2hDE/UAe5AfaXm4Wd0vRK0gRy0FNnn+H/D7ku6Hl1JOY8v1wP4+GVdmh9nk7Ol8Qs2/oQVXmP+paLyxoQxD3A3mQ3mV7uX/+7EEc1H0uolr+HbJbKN9NYZvIhWDK98PtGMUemYConBNrx5QvSL8v5j/qXi8s4A6o5gfyQkDy31fZgZMaquXfUQe48N3QgHcuBFO+n74C4u2Y8gWV8gJV/Eel6Yy4BUR+IA/yAxUC2r96LY8Ez7+j/D7ad0PLqV6XKd8P9/NoWJ0v8hPxdnS+ILUeP4Vx/1GPemGhyqfuB5o/P5A4c5zIC+Ls3JEZQln+He330b4btZzqdZny/XA/j95ltc5XUQ+s2o7ej1qvkkdIXkRz/9FR1QsjP5Bf+YHsit55RtwC8rHdW1VsORIgIB/aDZg4QwIBOSPOkEBAzogzJBCQM+IMCQTkjDhDAgE5Y9KQzPYk8hgEtEqS5OTn8dprzyvU0w9kzYxjIaZPtX93UU5NMlq7c7D7QT4tPvBEaah/aFheoeMS0Fr+xNniObBvApJjX9rXkw89cP+Q9vkwH8+t6HBEp3NW8wHt8iEN7Uuq1Rvr6AeyZk5DUdOniklAezniqXw9uigK8w/RKDvz8WRykUkcaj6gt+mX1aKUX4j7jzr6gayZ01BkPND7VWIxGO+XgK7ENdCvqa4no+0XzD9EAmE+nnT/4iETHbdxPFNN6vxCbPS/sx/IGg9PYYIvv0XUA2UcFtABo1jFxyMXZFlkDAIq8gsxAaVd/UDW+Ckg7xNMdYUJqDiFMf8Q+XyYj0dK7PqmtLzkA5KnsCK/EBNQDz+QNd7dxosPv789H7/dOVjlo/oVX09WHLfqHyKfD/fxCNZZJLgPKLuIXmhfUs1/dFR+IM4X6Q+K5DZ+SnrcaMQZkmN4kDgZq6TPs7I4QwIBOSPOkEBAzogzJBCQM+IMCQTkjDhDAgE5I86QQEDOiDvReCjtSjr4e3ZXk2Tq5fTKO9SSncP+3cwCzw8UQr0wo7+nvM7LxsVzELeAQqoXRv4e8ttwP4+YPvnlJQ1ZmOt76fxCVd9Ord6X8vno9skHpPMOqfZ4niBWh8wUkqDTA9XyA4VQL4z8PeS3YX6e3Yv3okM904Omxvpe5OPh/p9avS/l89HZO5QPSPt+VHs8TxCrQ4Z6YX2YVEDK36P8NtzPs1FeC7JtGMszkY+H+39q9b7UKHuRHqZqLKP5PE8Qq0MW9ykspHph2p6R+224n6ergMp1wsq+nXq9r54CovfF6pDFLaCQ6oWRgMhvw/w8tVOYob6X9vEw30693hcJiPxCN+wUVkpMVcoTxOuQxX0bH1K9MOXv0X4b7ufJLqLFfTxdRBvqe+n8Qtz/w+p9aR8Rta98QOT7KeqKVfME8TpkcT4a4/mBUC+sGwN+cBBnSEJ8kDg7/XxARJwhgYCcEWdIICBnxBkSCMgZcYYEAnJGnCGBgJwRZ0ggIGe4C4nL55IxCkg+y/qmNAzTns+nul7X9RXllOVNuAqJ25ER06f6+O6JVZLvOQUkn6j/VRnH65rPh9YzrG/IJ7SGgA5hlyV+VgF9lz/lK/w4UhBmXxD5friAmJ+H8glRHbPVyWuxvcza8ZOVH2hkHNuLYhTQ/u4i+fZT2Y+TZ9Mw+YK074cJiPl5dA9EdcxWYifydX1q5QcaGcf2ohgFJJEHsPDjUDqWg7aOwvfDBMT8PFpAqo6Zrltm6wcaGZzCxmD3w33Jj9MooJJ9uiIg7ucproHyOmZGAaU9/UAjAwFZkh24bcWPUxEQ9wUVvp+qgLifR+cTojpm+hRm7QcaGT9u4wMWkPTj3LO8Paf/bfQFVXw/p/c6vw/z8+h8QlTH7PpfWXFe+IEOcSuDaPHbqjijRWx0pcIexBmSGB8kTo2qY7bq+Q2LMyQQkDPiDAkE5Iw4QwIBOSPOkEBAzogzJBCQM0YOiSe/JYOAnDFqSLz5NavPAnLk6+nq5xmwn0r+oOMQkPYBeZAfaDJfD1+bC4jGvFrrifXaz5gC8iclTP1T5U9ZfcgPNJGvR/t15BDG2Y833M9T8v3IV72/cv6hg/th+YR4zzSmncOflDAmAfmQH2gqXw/5de5+Fet/f1Pz87AeSO+PBk1N++H5hFjPdBynsIqAPEjvMoWvR/l1eFoYXgZKC4hG8Vv2U8snBAF5IKBJfD2UV0j9vr2ngIz74fmEphSQx7fx+af3ID/QZL4eygck75E+Pl/W/Dza95O/FgJS+YEM+6nlE5pWQJ5gEpAH+YEm8/XovEJi+6/e1v082veTvRb5hSg/kGk/LJ+Qnj9eSDyEfyrtA0J+oLGJMyQ+P0iMjDhDAgE5I86QQEDOiDMkEJAz4gwJBOSMOEMCATkj3JA0PbOEgJwRakiaR00iFNBGPsoqJw4vuK34d4rR8l51vzr4hw62d2QC4n4gmlavbfmDZk3vskwr1XcOrNHLL6RRY2Qd8wFxAhVQi/XI9Km4H4imi/nNP32eXUCXpXpgyvdT9DhVAdF8Q90w8huRT0j7h8j3Y9oPa89RepexabEemQ409wPRdDHfYwEl+U9HyQdEvp96z1N9NdUNI7+R7oGUf4h8P6b9sPYC7YEGnsK4nYOmi/keC0gWRhE9gfIBmewXtVdD3TA9Wl8+hWXTKgSm/bD2IKCQBCT+Kep+6boWzQJKD9cNaxNQw34q7YUqoGG38dwPRNPFfL8F9PlqqX1A5PtpE5CpbpgWjPIJMQEZ98PaC1dATZg+lfYD7a8yRwtNFz4hbwWU3cbLy1hd9yv3/XD/Ts3PY6gbpv1CyidE07qOmGE/vL3jEpD2A+1yAelp9dqWPyjOaFkRZ0gifJDoK3GGBAJyRpwhgYCcEWdIICBnxBkSCMgZcYYEAnJGICHp+YNFCMgZQYSk90+mAxRQNiqeP6Cr+m561vmagEZf0ZEJqMUPJI/iaUP6nCmjtTmX4weHdt7T3+OWEATUP+/QUD9Q2+/mpxaQ1IrqcXTdLp3Ohep2KX9ObTp/1fl+mG+H2uN5h9T65vxE1AOSP6jII5SHxKmNZxj98w4N9QPNLiBSUVoUPdGDmCpJAvlz+LTOC6S+ENwHpIuosLxDlMXDlJ+I5yMq8ghNHpLRGO0U1mbnkKeww77j5nbHgAuIyi5RNg6VpoX8OXya5wWq+YB4GSfK+0PThvQy+v0of1Apj1AGBFT1AzX3Qi5OYa0Ceii9zWKa5wWSlH07XEC1RFQtAir8QdW3HYSARruNb/cDpbUIdWl3DKSAPr8oTlmmUxj5c/i0zguk8v0w306tDhjl/VHrG/MT8XxERR6hyUMyH0P9QNciOL+f9293BOg2XvtuVN2uIk9PqfjtV2/Tg9PylfL9cB9QrQ5YnvdHrf93U36iWj4i2m76kMzIUD+QDF7pDqN7uxPQs26X8/YURyYgT9s9QN+6Xa7bIyAgH9oNmDhDAgE5I86QQEDOiDMkEJAz4gwJBOSMAEIyIHk5BOQM70MyqHxCDALidcUYtXw+Y/uGVHu3J83Pj45MQC1+oJX69WfvdidA1xUz1Peq5/MZ2zdUGpMz47uAhtUgG+oHkseq6TA4FVBeV0zn71F+HO0TUvl8xPKl6I7kQ8JRfEOsjpkQ0Bs1BHJ4fd/9QMNqkA3PD9Rc0M/pKUzVFaM3RH4cPSiq8vlI8Y/pG2J1zNLV2adskNewvu890LinsA52jkZPmetoZQdKCYjy+jBbRiae8qi5rW+I1TGr7S+0/ECuBdSYKtB1tHY/3JOAdF4ffkDFP3kHNI5viNcxq+8vuPxAI97Gt/uB9o0laR1Gi+qK6fpe5Mfhvh4x8To/rqP4hngds+wU9tfTe9P6AQhoAMPzAzW7op0KSNUVozpf5Mfhvh4hI/lZRvMNVeuY3d+evMn3b1j/uATU5gdqS3brQ7Tqt9XNSbEmxoeQjE8MDxIN1Hw9t3ny1rnwICQTELGAfCPOkEBAzogzJBCQM+IMCQTkjDhDAgE5w7+QDHhuWAMCcoZvIRk0clEjZAHN7QPqyZEJyOAH2r+7aPxBYWu7IzK/D6gXnglomP2nRl8/0Fr+pLnDYXAioHl9QHo51Q2r5hHy3Q80zP5To68fSOKLgOb2ARWj/HndMJZHyHc/0LSnMJOdI92vkpbcUo3tjs2cPiBetYflEfLdDzSTgNL0y2+e9ECSOX1AvG4YF17qux9oytt4kx9IsjXf+bS2OyKz+4BoOamF5RGCH+iQH0gEZX/bkBeord0RmdsHRMt13bBqHiH4gQ76gb6I4F56chtvwjMfEHFkAvK03Q745gMiICAf2g2YOEMCATkjzpBAQM6IMyQQkDPiDAkE5Ax3IRnjAWFXICBnuArJOEMUXQlZQC1+oAm4S5IT88/hCr/RwbphxyWgj++eWD1888EPpGlb3pXt05ZHqI1+I0cCGsnn0xXzp7J7ejuHH4j5csgXpJfb+oBuZTtnRR0w2o7nCaKeaB4/0Eg+n66ELCDuB+K+HF2ERS239QHRKDK1T+vzPEH0OpMfyI9TWAgCkpT9QNyXo8tA5cutfUBKQNS+Xp/nCaLXmfxAEFAfSn6gmi/HKKCBdcSUgArBqe14nqDStdA8fiA/buO9FxD3A9V8OfoUppbb1hGjUxi1r9av5QnSvqNj9gMFIaCqH6jmy1G+IO0XsvUBZZlpz4v2aX2WJ0j7jo7aD0R3HGO365KJ6n4NxYeQjE/IDxJbmKru11A8CMkERCwg34gzJBCQM+IMCQTkjDhDAgE5I86QQEDOCDckTQ8mISBnhBqS5qERnwXk2O9TyyfEMecXOuj/4RyZgFrqhbX5hcaIlmu/T3Pq9GyN6mfut99ABdTiL+qbH6iY3zzUMYqAHPt9VD4h1f7u6tHz0z/k/qgdSs6g8g3p/Wr/T3P7nuUH6kqLv6hvfqBi/vQCcu33oXxCqv3t45sPp+/vikFXbRijfEO6B8rnt7QfaA808BTWXu5pegFJXPp91HxqX3zMzbmYSe2kOsMZ5RuqCqitfQhoDgG59Puo+VqAJgHpfENcQM3thyqgYbfx7fXCJheQc78PHXjVPgmodgrT+Ybofan5Le2HK6Am+uYHKuqFORCQW7+PzieUt/+/V8n5JlmIS2LVjvb5qHxD1fel8g41tH9cAmqrF9bmF3IRrfn8PoPMdkcmIE/bLTGb32dgviEIyId2AybOkEBAzogzJBCQM+IMCQTkjDhDAgE5I5CQ9PxVIgTkjCBC0vt30SEKyH1eIIL7fvT07qr9icKRCajFDyRHHE8b7DBTRst5XqAO6AE6MyEIqH9yoaF+oG1LyZ5JBeTWJ3SbJIuNfGhJvh/aH02L/Z788rJUR+yb3FcUoB+of3KhoX6gOQXk3CckvzSX9FexPxqFf/FevKWzUh2xR7mvKEQ/0GinsDY7h/x6lxMPdG13LFz6hPYvHtS4m7Zz0Ba6Vk8WE1ZHLEQ/kDMBSZp6oamj5TQv0HqZd0DNAqrXEQvSDzTSbXy7H6j5wnHCaLnPC7R7qQb+DwqITmFFHTElIPiBGvxA17L4bkPdsEkF5DgvkJCE/KTV/D/LwgeUXUSL+3iVJ0j7iuAHkq8GP5AMelP57zmj5VleIOLIBORpux3wLS8QAQH50G7AxBkSCMgZcYYEAnJGEidTRWuido+NYXEctJVfh8yvdxMuEBCwAgICVkBAwAoICFgBAQErICAAhgABASsgIGAFBASsgICAFRAQsAICAlZAQMAKCAhYAQHZsf2b/NnIKss/oF56btwLvYv+m04EBGRF/luY23P5H7303LgXtIsBm04EBGTDOvlG9AS7729kj6Beem7cC9rFgE2nAgKy4X8e5OHc5iJSLz037gXtYsCmUwEB2WEhoAEXMsUuIKBIgIDmfgOBAwHN/QYCZzv8InqACopdQECRkB3IgbfxA1SgdwEBRUJ2IHdX2eM99dJz487I9Eh6FxAQiAMICFgBAQErICBgBQQErICAgBUQELACAgJWQEDACggIWAEBASsgIGAFBASsgICAFRAQsAICAlZAQGOxu1oeXqC8X5skOckM0/uVYUXeivxb/J//V8ztZbueHAhoLEwCUj8i3Qj1bDIFrfv9enXJG96cNdR/cw4ENBYGAW0S9bt5Wf5P+pmNPZWpVb5BYw/mHAhoLLLjLORCNeuTk9ey00kWGymg7YU86mvxp5zcPn5zoVZc51vsrn65yutzLtXMc3YKozXEUp+6IAhoLORB3mQSkD/QkEpR1zy5gB7fqD9lL7S9SPKV07VYZ3uxEFuJP8REJiA5c3e14ALK10jVmdATIKCxEAc5P0+J45v3N7clAeUHfSMVskgzyWQ9STYl11CzlVQW1GJFQAvVkeWtewIENBbiIOdHVvy70dfNaV1AWgJiKp+thEMXPCQQLqBlSv8sTG/CPRDQWGgBiT/WNQHpU1jehzxWctqocoJVAT2+oRYhoKMguxBu7oH0RXTeA2kB0eUMeqCjp34NtC4JSN/Gl66BbuU10FJvrQVkugYiAeEaKEqa78KKB4n5XVh2h69uuOTVdllA2cz96twkINyFRUntOdDpH/nP2HMByfPcCd3Kby9+usif6WSnPzGnIiDDcyASEJ4DHQmbg6kWylc5g+j3KHtqIKApyARiutZdn9sJCGNhR0B2e24QyX61tBEQRuNBTEBAwAoICFgBAQErICBgBQQErICAgBUQELACAgJWQEDACggIWAEBASsgIGAFBASsgICAFRAQsAICAlZAQMAKCAhYAQEBKyAgYMX/A5BHtsvb/hNvAAAAAElFTkSuQmCC" alt style="display: block; margin: auto;" /></p>
 </div>
 <div id="example-application-to-mixed-models" class="section level2">
 <h2>Example: Application to mixed models</h2>
@@ -644,23 +591,18 @@ random effect for each rail, and a random residual. The package
 </div>
 <div id="nlme" class="section level2">
 <h2>nlme</h2>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;nlme&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;nlme&quot;</span>)</span></code></pre></div>
 <pre><code>## Loading required package: nlme</code></pre>
-<pre><code>## 
-## Attaching package: &#39;nlme&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     collapse</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">data</span>(Rail)</span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>mn <span class="ot">&lt;-</span> <span class="fu">lme</span>(travel<span class="sc">~</span><span class="dv">1</span>, <span class="at">random=</span><span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>Rail, <span class="at">data=</span>Rail)</span>
-<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="fu">vc</span>(mn)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">data</span>(Rail)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>mn <span class="ot">&lt;-</span> <span class="fu">lme</span>(travel<span class="sc">~</span><span class="dv">1</span>, <span class="at">random=</span><span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>Rail, <span class="at">data=</span>Rail)</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="fu">vc</span>(mn)</span></code></pre></div>
 <pre><code>##       effect variance stddev
 ##  (Intercept)   615.3  24.81 
 ##     Residual    16.17  4.021</code></pre>
 </div>
 <div id="lme4" class="section level1">
 <h1>lme4</h1>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;lme4&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;lme4&quot;</span>)</span></code></pre></div>
 <pre><code>## Loading required package: lme4</code></pre>
 <pre><code>## Loading required package: Matrix</code></pre>
 <pre><code>## 
@@ -668,51 +610,51 @@ random effect for each rail, and a random residual. The package
 <pre><code>## The following object is masked from &#39;package:nlme&#39;:
 ## 
 ##     lmList</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(travel<span class="sc">~</span><span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Rail), <span class="at">data=</span>Rail)</span>
-<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a><span class="fu">vc</span>(m4)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(travel<span class="sc">~</span><span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Rail), <span class="at">data=</span>Rail)</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="fu">vc</span>(m4)</span></code></pre></div>
 <pre><code>##       grp        var1 var2   vcov  sdcor
 ##      Rail (Intercept) &lt;NA&gt; 615.3  24.81 
 ##  Residual        &lt;NA&gt; &lt;NA&gt;  16.17  4.021</code></pre>
 </div>
 <div id="asreml" class="section level1">
 <h1>asreml</h1>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="co"># require(&quot;asreml&quot;)</span></span>
-<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a><span class="co"># ma &lt;- asreml(travel~1, random=~Rail, data=Rail)</span></span>
-<span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a><span class="co"># vc(ma)</span></span>
-<span id="cb34-4"><a href="#cb34-4" tabindex="-1"></a><span class="do">##         effect component std.error z.ratio constr</span></span>
-<span id="cb34-5"><a href="#cb34-5" tabindex="-1"></a><span class="do">##  Rail!Rail.var    615.3      392.6     1.6    pos</span></span>
-<span id="cb34-6"><a href="#cb34-6" tabindex="-1"></a><span class="do">##     R!variance     16.17       6.6     2.4    pos</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="co"># require(&quot;asreml&quot;)</span></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="co"># ma &lt;- asreml(travel~1, random=~Rail, data=Rail)</span></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="co"># vc(ma)</span></span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="do">##         effect component std.error z.ratio constr</span></span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="do">##  Rail!Rail.var    615.3      392.6     1.6    pos</span></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="do">##     R!variance     16.17       6.6     2.4    pos</span></span></code></pre></div>
 </div>
 <div id="jags" class="section level1">
 <h1>JAGS</h1>
 <p>In a Bayesian model all effects can be considered as random.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;nlme&quot;</span>)</span>
-<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a><span class="fu">data</span>(Rail)</span>
-<span id="cb35-3"><a href="#cb35-3" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;rjags&quot;</span>)</span>
-<span id="cb35-4"><a href="#cb35-4" tabindex="-1"></a>m5 <span class="ot">&lt;-</span></span>
-<span id="cb35-5"><a href="#cb35-5" tabindex="-1"></a><span class="st">&quot;model {</span></span>
-<span id="cb35-6"><a href="#cb35-6" tabindex="-1"></a><span class="st">for(i in 1:nobs){</span></span>
-<span id="cb35-7"><a href="#cb35-7" tabindex="-1"></a><span class="st">  travel[i] ~ dnorm(mu + theta[Rail[i]], tau)</span></span>
-<span id="cb35-8"><a href="#cb35-8" tabindex="-1"></a><span class="st">}</span></span>
-<span id="cb35-9"><a href="#cb35-9" tabindex="-1"></a><span class="st">for(j in 1:6) {</span></span>
-<span id="cb35-10"><a href="#cb35-10" tabindex="-1"></a><span class="st">  theta[j] ~ dnorm(0, tau.theta)</span></span>
-<span id="cb35-11"><a href="#cb35-11" tabindex="-1"></a><span class="st">}</span></span>
-<span id="cb35-12"><a href="#cb35-12" tabindex="-1"></a><span class="st">mu ~ dnorm(50, 0.0001) # Overall mean. dgamma() </span></span>
-<span id="cb35-13"><a href="#cb35-13" tabindex="-1"></a><span class="st">tau ~ dgamma(1, .001)</span></span>
-<span id="cb35-14"><a href="#cb35-14" tabindex="-1"></a><span class="st">tau.theta ~ dgamma(1, .001)</span></span>
-<span id="cb35-15"><a href="#cb35-15" tabindex="-1"></a><span class="st">residual &lt;- 1/sqrt(tau)</span></span>
-<span id="cb35-16"><a href="#cb35-16" tabindex="-1"></a><span class="st">sigma.rail &lt;- 1/sqrt(tau.theta)</span></span>
-<span id="cb35-17"><a href="#cb35-17" tabindex="-1"></a><span class="st">}&quot;</span></span>
-<span id="cb35-18"><a href="#cb35-18" tabindex="-1"></a>jdat <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">nobs=</span><span class="fu">nrow</span>(Rail), <span class="at">travel=</span>Rail<span class="sc">$</span>travel, <span class="at">Rail=</span>Rail<span class="sc">$</span>Rail)</span>
-<span id="cb35-19"><a href="#cb35-19" tabindex="-1"></a>jinit <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">mu=</span><span class="dv">50</span>, <span class="at">tau=</span><span class="dv">1</span>, <span class="at">tau.theta=</span><span class="dv">1</span>)</span>
-<span id="cb35-20"><a href="#cb35-20" tabindex="-1"></a>tc5 <span class="ot">&lt;-</span> <span class="fu">textConnection</span>(m5)</span>
-<span id="cb35-21"><a href="#cb35-21" tabindex="-1"></a>j5 <span class="ot">&lt;-</span> <span class="fu">jags.model</span>(tc5, <span class="at">data=</span>jdat, <span class="at">inits=</span>jinit, <span class="at">n.chains=</span><span class="dv">2</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span>
-<span id="cb35-22"><a href="#cb35-22" tabindex="-1"></a><span class="fu">close</span>(tc5)</span>
-<span id="cb35-23"><a href="#cb35-23" tabindex="-1"></a>c5 <span class="ot">&lt;-</span> <span class="fu">coda.samples</span>(j5, <span class="fu">c</span>(<span class="st">&quot;mu&quot;</span>,<span class="st">&quot;theta&quot;</span>, <span class="st">&quot;residual&quot;</span>, <span class="st">&quot;sigma.rail&quot;</span>), </span>
-<span id="cb35-24"><a href="#cb35-24" tabindex="-1"></a>                   <span class="at">n.iter=</span><span class="dv">100000</span>, <span class="at">thin=</span><span class="dv">5</span>, <span class="at">progress.bar=</span><span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;nlme&quot;</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="fu">data</span>(Rail)</span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;rjags&quot;</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a>m5 <span class="ot">&lt;-</span></span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="st">&quot;model {</span></span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a><span class="st">for(i in 1:nobs){</span></span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="st">  travel[i] ~ dnorm(mu + theta[Rail[i]], tau)</span></span>
+<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a><span class="st">for(j in 1:6) {</span></span>
+<span id="cb22-10"><a href="#cb22-10" tabindex="-1"></a><span class="st">  theta[j] ~ dnorm(0, tau.theta)</span></span>
+<span id="cb22-11"><a href="#cb22-11" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb22-12"><a href="#cb22-12" tabindex="-1"></a><span class="st">mu ~ dnorm(50, 0.0001) # Overall mean. dgamma() </span></span>
+<span id="cb22-13"><a href="#cb22-13" tabindex="-1"></a><span class="st">tau ~ dgamma(1, .001)</span></span>
+<span id="cb22-14"><a href="#cb22-14" tabindex="-1"></a><span class="st">tau.theta ~ dgamma(1, .001)</span></span>
+<span id="cb22-15"><a href="#cb22-15" tabindex="-1"></a><span class="st">residual &lt;- 1/sqrt(tau)</span></span>
+<span id="cb22-16"><a href="#cb22-16" tabindex="-1"></a><span class="st">sigma.rail &lt;- 1/sqrt(tau.theta)</span></span>
+<span id="cb22-17"><a href="#cb22-17" tabindex="-1"></a><span class="st">}&quot;</span></span>
+<span id="cb22-18"><a href="#cb22-18" tabindex="-1"></a>jdat <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">nobs=</span><span class="fu">nrow</span>(Rail), <span class="at">travel=</span>Rail<span class="sc">$</span>travel, <span class="at">Rail=</span>Rail<span class="sc">$</span>Rail)</span>
+<span id="cb22-19"><a href="#cb22-19" tabindex="-1"></a>jinit <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">mu=</span><span class="dv">50</span>, <span class="at">tau=</span><span class="dv">1</span>, <span class="at">tau.theta=</span><span class="dv">1</span>)</span>
+<span id="cb22-20"><a href="#cb22-20" tabindex="-1"></a>tc5 <span class="ot">&lt;-</span> <span class="fu">textConnection</span>(m5)</span>
+<span id="cb22-21"><a href="#cb22-21" tabindex="-1"></a>j5 <span class="ot">&lt;-</span> <span class="fu">jags.model</span>(tc5, <span class="at">data=</span>jdat, <span class="at">inits=</span>jinit, <span class="at">n.chains=</span><span class="dv">2</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span>
+<span id="cb22-22"><a href="#cb22-22" tabindex="-1"></a><span class="fu">close</span>(tc5)</span>
+<span id="cb22-23"><a href="#cb22-23" tabindex="-1"></a>c5 <span class="ot">&lt;-</span> <span class="fu">coda.samples</span>(j5, <span class="fu">c</span>(<span class="st">&quot;mu&quot;</span>,<span class="st">&quot;theta&quot;</span>, <span class="st">&quot;residual&quot;</span>, <span class="st">&quot;sigma.rail&quot;</span>), </span>
+<span id="cb22-24"><a href="#cb22-24" tabindex="-1"></a>                   <span class="at">n.iter=</span><span class="dv">100000</span>, <span class="at">thin=</span><span class="dv">5</span>, <span class="at">progress.bar=</span><span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <p>Compare the JAGS point estimates and quantiles (above) with the
 results from <code>lme4</code> below.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a>m4</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>m4</span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
 ## Formula: travel ~ 1 + (1 | Rail)
 ##    Data: Rail
@@ -725,7 +667,7 @@ results from <code>lme4</code> below.</p>
 ## Fixed Effects:
 ## (Intercept)  
 ##        66.5</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a><span class="fu">ranef</span>(m4)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">ranef</span>(m4)</span></code></pre></div>
 <pre><code>## $Rail
 ##   (Intercept)
 ## 2   -34.53091
@@ -759,7 +701,7 @@ the next two columns are the variance and standard deviation from the
 version 1.1-7 and are likely to be different than the results from more
 recent versions of <code>lme4</code>.</p>
 <p>The default output printing is shown first.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a><span class="fu">print</span>(out)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">print</span>(out)</span></code></pre></div>
 <pre><code>##           term     vcov-bo  sdcor-bo sep      vcov-ne     sdcor-ne
 ## 1  (Intercept)   2869.4469  53.56722     3.228419e+03  56.81917727
 ## 2        r1:c3   5531.5724  74.37454     7.688139e+03  87.68203447
@@ -787,7 +729,7 @@ The standard deviations are shown with 5 decimal places in column 3 and
 precision.)</p>
 <p>The <code>lucid()</code> function is now used to show the results in
 the manner of the <code>vc()</code> function.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="fu">lucid</span>(out, <span class="at">dig=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">lucid</span>(out, <span class="at">dig=</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##           term  vcov-bo sdcor-bo sep  vcov-ne sdcor-ne
 ## 1  (Intercept)   2869      53.57       3228     56.82 
 ## 2        r1:c3   5532      74.37       7688     87.68 
@@ -813,7 +755,7 @@ identical to the results obtained when using ASREML or SAS.</p>
 <p>Note: Data frames have no quotes, but numeric matrices are printed
 with quotes. Use <code>noquote()</code> to print without quotes, for
 example:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="fu">noquote</span>(<span class="fu">lucid</span>(<span class="fu">as.matrix</span>(<span class="fu">head</span>(mtcars)),<span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="fu">noquote</span>(<span class="fu">lucid</span>(<span class="fu">as.matrix</span>(<span class="fu">head</span>(mtcars)),<span class="dv">2</span>))</span></code></pre></div>
 <pre><code>##                   mpg cyl disp hp  drat wt  qsec vs am gear carb
 ## Mazda RX4         21  6   160  110 3.9  2.6 16   0  1  4    4   
 ## Mazda RX4 Wag     21  6   160  110 3.9  2.9 17   0  1  4    4   
@@ -876,10 +818,6 @@ Manual of Crop Experimentation</em>. Charles Griffin; Company.
 Pinheiro, Jose, Douglas Bates, Saikat DebRoy, Deepayan Sarkar, and R
 Core Team. 2014. <em><span class="nocase">nlme</span>: Linear and
 Nonlinear Mixed Effects Models</em>. <a href="https://CRAN.R-project.org/package=nlme">https://CRAN.R-project.org/package=nlme</a>.
-</div>
-<div id="ref-robinson2016broom" class="csl-entry">
-Robinson, David. 2016. <em><span class="nocase">broom: Convert
-Statistical Analysis Objects into Tidy Data Frames</span></em>. <a href="https://CRAN.R-project.org/package=broom">https://CRAN.R-project.org/package=broom</a>.
 </div>
 <div id="ref-wainer1997improving" class="csl-entry">
 Wainer, Howard. 1997. <span>“Improving Tabular Displays, with

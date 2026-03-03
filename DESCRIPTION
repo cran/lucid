@@ -1,6 +1,6 @@
 Package: lucid
 Title: Printing Floating Point Numbers in a Human-Friendly Format
-Version: 1.9
+Version: 1.11
 Authors@R: 
     person("Kevin", "Wright", , "kw.stat@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-0617-8673"))
@@ -20,10 +20,11 @@ Suggests: broom, dplyr, knitr, lattice, lme4, rjags, rmarkdown, sommer,
 VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 NeedsCompilation: no
-Packaged: 2025-04-03 20:07:59 UTC; wrightkevi
-Author: Kevin Wright [aut, cre, cph] (<https://orcid.org/0000-0002-0617-8673>)
+Packaged: 2026-03-03 19:45:58 UTC; wrightkevi
+Author: Kevin Wright [aut, cre, cph] (ORCID:
+    <https://orcid.org/0000-0002-0617-8673>)
 Maintainer: Kevin Wright <kw.stat@gmail.com>
 Repository: CRAN
-Date/Publication: 2025-04-04 03:30:05 UTC
+Date/Publication: 2026-03-03 21:20:37 UTC

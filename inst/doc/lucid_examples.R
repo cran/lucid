@@ -43,14 +43,6 @@ dotplot(bacteria~ -log10(penicillin), anti,
         par.settings=list(layout.widths=list(left.padding=10,right.padding=10))
         )
 
-## ----broom1-----------------------------------------------------------------------------
-require(dplyr)
-require(broom)
-Orange %>% group_by(Tree) %>% do(tidy(lm(circumference ~ age, data=.)))
-
-## ----broom2-----------------------------------------------------------------------------
-Orange %>% group_by(Tree) %>% do(tidy(lm(circumference ~  age, data=.))) %>% lucid
-
 ## ----nlme-------------------------------------------------------------------------------
 require("nlme")
 data(Rail)
